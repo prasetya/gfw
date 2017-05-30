@@ -17,8 +17,23 @@ define([
   'map/views/maptypes/positronMaptype',
   'map/views/maptypes/landsatMaptype',
   'map/views/maptypes/openStreetMaptype',
+  'map/views/maptypes/emptyMaptype',
   'map/helpers/layersHelper'
-], function(Backbone, _, mps, Cookies, enquire, Presenter, grayscaleMaptype, treeheightMaptype, darkMaptype, positronMaptype, landsatMaptype, openStreetMaptype, layersHelper) {
+], function(
+  Backbone,
+  _,
+  mps,
+  Cookies,
+  enquire,
+  Presenter,
+  grayscaleMaptype,
+  treeheightMaptype,
+  darkMaptype,
+  positronMaptype,
+  landsatMaptype,
+  openStreetMaptype,
+  emptyMaptype,
+  layersHelper) {
 
   'use strict';
 
@@ -372,7 +387,7 @@ define([
      * @param {string} maptype The map type id.
      */
     setMapTypeId: function(maptype) {
-      this.map.setMapTypeId(maptype);
+      this.map.setMapTypeId('empty');
       if (maptype === 'terrain') {
         var styles = [
           {
@@ -453,6 +468,7 @@ define([
      * Set additional maptypes to this.map.
      */
     _setMaptypes: function() {
+      this.map.mapTypes.set('empty', emptyMaptype());
       this.map.mapTypes.set('grayscale', grayscaleMaptype());
       this.map.mapTypes.set('treeheight', treeheightMaptype());
       this.map.mapTypes.set('dark', darkMaptype());

@@ -151,6 +151,8 @@ define([
       "infoamazonia",
       "mongabay",
       "user_stories",
+      // BASEMAP
+      "landsat2016",
       // FOREST CHANGE
       "umd_coverage_2015",
       "gfw_landsat_alerts_coverage",

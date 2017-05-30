@@ -59,9 +59,13 @@ define([
       if (!$(e.target).hasClass('source') && !$(e.target).parent().hasClass('source')) {
         var $currentTarget = $(e.currentTarget);
         var maptype = $currentTarget.data('maptype');
+        var layer = $currentTarget.data('layer');
         if (maptype) {
           this.presenter.setMaptype(maptype);
           ga('send', 'event', 'Map', 'Toggle', maptype);
+        }
+        if (layer) {
+          this.presenter.toggleLayer(layer);
         }
       }
     },

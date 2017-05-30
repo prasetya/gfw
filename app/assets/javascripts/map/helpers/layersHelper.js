@@ -2,6 +2,8 @@
  * Map layers slug with layer files. (like views and dialog templates)
  */
 define([
+  // Basemaps
+  'map/views/layers/basemaps/Landsat2016Layer',
   // Layer views
   'map/views/layers/LossLayer',
   'map/views/layers/ForestGainLayer',
@@ -181,6 +183,8 @@ define([
   'map/views/timeline/GladTimeline',
   'map/views/timeline/MangroveTimeline'
 ], function(
+  // Basemaps
+  Landsat2016Layer,
   // Layer Views
   LossLayer,
   ForestGainLayer,
@@ -364,6 +368,9 @@ define([
   'use strict';
 
   var layersHelper = {
+    landsat2016: {
+      view: Landsat2016Layer
+    },
     loss: {
       view: LossLayer,
       timelineView: LossTimeline
