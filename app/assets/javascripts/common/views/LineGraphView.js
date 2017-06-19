@@ -140,10 +140,20 @@ define([
 
       var svg = d3.select(el).append('svg')
         .attr('width', this.cWidth + margin.left + margin.right + 'px')
-        .attr('height', this.cHeight + margin.top + margin.bottom + 'px');
+        .attr('height', this.cHeight + margin.top + margin.bottom + 'px')
+        .on('mousemove', this.moveCircle);
 
       this.svg = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
+    },
+
+    moveCircle: function() {
+      var _this = this;
+      var circle = $(_this).find('.dot');
+      var x = d3.mouse(this)[0];
+      console.log(x);
+      $(circle).attr("cx", x);
+      var y;
     },
 
     /**
