@@ -65,7 +65,7 @@ define([
               $(circle).attr("cx", this.defaults.dataSvgCoverLoss[i].data[0].xValues[position]);
               $(circle).attr("cy", this.defaults.dataSvgCoverLoss[i].data[0].yValues[position]);
             }
-            $('#value-tree-cover-loss').html(NumbersHelper.addNumberDecimals(Math.round(data[position].value)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+            $('#value-tree-cover-loss').html(NumbersHelper.addNumberDecimals(Math.round(data[position].value)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+' <span class="unit">ha</span>');
           }
         }
       },
