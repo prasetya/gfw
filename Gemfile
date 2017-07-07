@@ -47,6 +47,12 @@ group :production do
   gem 'rails_12factor'
 end
 
+group :test do
+  gem 'rails-controller-testing'
+  gem 'simplecov'
+  gem 'vcr'
+end
+
 gem 'newrelic_rpm'
 gem 'puma'
 
