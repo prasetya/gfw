@@ -263,7 +263,7 @@ $colors: $forest-change-color,$forest-cover-color,$forest-use-color,$conservatio
         text-transform: uppercase;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;        
+        white-space: nowrap;
         @media (min-width: $br-mobileMap){
           display: block;
         }
@@ -523,7 +523,7 @@ $colors: $forest-change-color,$forest-cover-color,$forest-use-color,$conservatio
       }
       .onoffswitch{
         cursor: pointer;
-        margin: 1px 6px 0 0;
+        margin: 4px 6px 0 0;
       }
     }
     >li{
@@ -589,7 +589,7 @@ $colors: $forest-change-color,$forest-cover-color,$forest-use-color,$conservatio
     }
 
     .onoffswitch {
-      margin: 1px 6px 0 0;
+      margin: 4px 6px 0 0;
     }
   }
 
