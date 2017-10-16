@@ -161,18 +161,19 @@ $black-tabs: #404040;
 
       ul {
         padding: 0 rem(20px);
+        display: flex;
 
         li {
           cursor: pointer;
           height: rem(40px);
           font-size: 13px;
-          color: $slate;
           text-transform: uppercase;
           letter-spacing: .1px;
           padding: 0 rem(14px);
           display: flex;
           align-items: center;
           justify-content: center;
+          color: #9f9f9f;
 
           &.-selected {
             background-color: $white;

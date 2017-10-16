@@ -72,11 +72,17 @@ class Header extends PureComponent {
           <div className="row">
             <ul>
               <li className="-selected">Summary</li>
+              <li className="">Forest Change</li>
+              <li className="">Land Cover</li>
+              <li className="">Land Use</li>
+              <li className="">Conservation</li>
+              <li className="">People</li>
+              <li className="">Climate</li>
             </ul>
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
