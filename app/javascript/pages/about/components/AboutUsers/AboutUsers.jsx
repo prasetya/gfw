@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 
-import Globe from '../../../about/components/AboutUsers/Globe/index';
+import globe from '../../../about/components/AboutUsers/globe/globe';
 import AboutModalWorld from '../../../about/components/AboutModals/AboutModalWorld';
 import ButtonRegular from '../../../general/components/ButtonRegular';
 

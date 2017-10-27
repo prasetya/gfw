@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Element } from 'react-scroll';
 import { lory } from 'lory.js';
 import Script from 'react-load-script';
@@ -17,23 +18,13 @@ class AboutImpacts extends Component {
       sliderPrevIsVisible: false,
       sliderNextIsVisible: true,
       sliderDotsSelected: 0,
-      impacts: [],
     };
   }
 
-  handleScriptLoad() {
-    var sql = new cartodb.SQL({ user: 'wri-01' });
-    const this_impact = this;
-    sql.execute("SELECT * FROM gfw_outcomes_for_about_page_images")
-      .done(function(data) {
-        this_impact.setState({ impacts: data.rows })
-        this_impact.setWidget();
-      })
-      .error(function(errors) {
-        // errors contains a list of errors
-        console.log("errors:" + errors);
-      })
+  componentDidMount() {
+    this.props.fetchData();
   }
+
 
   setWidget() {
     const slider = document.querySelector('.c-about-impacts .js_slider');
@@ -57,7 +48,7 @@ class AboutImpacts extends Component {
   checkButtonsVisibility () {
     const currentIndex = this.state.slider.returnIndex();
     this.setState({ sliderPrevIsVisible: currentIndex !== 0 });
-    this.setState({ sliderNextIsVisible: currentIndex !== this.state.impacts.length - 2 });
+    this.setState({ sliderNextIsVisible: currentIndex !== this.props.impacts.length - 2 });
   };
 
   checkDots () {
@@ -80,7 +71,7 @@ class AboutImpacts extends Component {
   render() {
     const slidePrevVisibilityClass = `c-about-impacts__arrow-button -left ${!this.state.sliderPrevIsVisible ? '-hidden' : ''} js_slide_prev`;
     const slideNextVisibilityClass = `c-about-impacts__arrow-button -right ${!this.state.sliderNextIsVisible ? '-hidden' : ''} js_slide_next`;
-    const { impacts } = this.state;
+    const { impacts } = this.props;
     return (
       <Element name="impacts" className="c-about-impacts">
         <Script url="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js" onLoad={this.handleScriptLoad.bind(this)}/>
@@ -113,7 +104,7 @@ class AboutImpacts extends Component {
               </div>
               <div className="c-about-impacts__slider-dots js_slider_dots">
                 <SliderDots
-                  count={this.state.impacts.length}
+                  count={this.props.impacts.length}
                   selected={this.state.sliderDotsSelected}
                   color="green"
                   callback={this.onClickDots.bind(this)} />
@@ -124,6 +115,10 @@ class AboutImpacts extends Component {
       </Element>
     );
   }
+}
+
+AboutImpacts.propTypes = {
+  impacts: PropTypes.array.isRequired,
 }
 
 export default AboutImpacts;

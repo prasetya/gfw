@@ -8,7 +8,7 @@ import AboutCover from './components/AboutCover/AboutCover';
 import AboutAnchors from './components/AboutAnchors/AboutAnchors';
 import AboutUsers from './components/AboutUsers/AboutUsersContainer';
 import AboutHow from './components/AboutHow/AboutHow';
-import AboutImpacts from './components/AboutImpacts/AboutImpacts';
+import AboutImpacts from './components/about-impacts/about-impacts';
 import AboutAwards from './components/AboutAwards/AboutAwards';
 import AboutHistory from './components/AboutHistory/AboutHistory';
 import AboutContactUs from './components/AboutContactUs/AboutContactUs';
